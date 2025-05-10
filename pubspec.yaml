@@ -1,0 +1,46 @@
+name: snake
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  audioplayers: ^6.4.0
+  video_player: ^2.4.6  # 🔥 Burayı doğru ekliyoruz
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/snake_cover.jpeg
+    - assets/images/ananas.jpg
+    - assets/images/armut.png
+    - assets/images/elma.png
+    - assets/images/karpuz.png
+    - assets/images/kiraz.png
+    - assets/images/kivi.png
+    - assets/images/portakal.png
+    - assets/images/çilek.png
+    - assets/images/GZ .jpg
+    - assets/images/pause.png
+    - assets/images/play.png
+    - assets/sounds/eat.mp3
+    - assets/sounds/splat.mp3
+    - assets/sounds/gameover.mp3
+    - assets/sounds/portals.mp3
+    - assets/sounds/gamemusic.mp3
+    - assets/images/gift.png
+    - assets/images/gift2.png
+    - assets/images/gift3.png
+    - assets/video/snakevideo.mp4
