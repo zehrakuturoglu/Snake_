@@ -13,7 +13,6 @@ class GiftBox {
   GiftBox({required this.position, required this.isGood, required this.image});
 }
 
-
 void main() {
   runApp(const SnakeGame());
 }
@@ -24,14 +23,17 @@ class SnakeGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const GameScreen(),
+      home: GameScreen(playerName: 'UserName'),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
 class GameScreen extends StatefulWidget {
-  const GameScreen({Key? key}) : super(key: key);
+  final String playerName; // ✅ PARAMETRE EKLENDİ
+
+  const GameScreen({Key? key, required this.playerName}) : super(key: key);
+
 
   @override
   _GameScreenState createState() => _GameScreenState();
@@ -240,6 +242,16 @@ class _GameScreenState extends State<GameScreen> {
         playSound('sounds/splat.mp3');  // 🔊 Çarpınca ses çal
         isGameOver = true;
         isGameRunning = false;
+        Future.delayed(const Duration(milliseconds: 500), () {
+          Navigator.pushReplacement(context,
+            MaterialPageRoute(
+              builder: (context) => GameOverScreen(
+                playerName: widget.playerName,
+                score: score,
+              ),
+            ),
+          );
+        });
         return;
       }
 
@@ -386,7 +398,10 @@ class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     if (isGameOver) {
-      return const GameOverScreen();
+      return  GameOverScreen(
+        score: score,
+        playerName: widget.playerName,
+      );
     }
     return Scaffold(
       backgroundColor: Colors.black,

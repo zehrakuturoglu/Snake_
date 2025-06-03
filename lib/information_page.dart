@@ -90,7 +90,7 @@ class _InformationScreenState extends State<InformationScreen> {
     return Scaffold(
       backgroundColor: Colors.black87,
       body: KeyboardListener(
-        focusNode: _focusNode, // ❗ GEREKLİ focusNode BURAYA EKLENDİ
+        focusNode: _focusNode,
         onKeyEvent: (event) {
           if (event is KeyDownEvent) {
             if (event.logicalKey == LogicalKeyboardKey.escape) {
